@@ -110,7 +110,9 @@ local function do_update(_, plugins, update_plugins, display_win, results)
   end
 
   if #tasks == 0 then log.info('Nothing to update!') end
-
+  if display_win == nil then
+    display_win = display.open(config.display.open_fn or config.display.open_cmd)
+  end
   return tasks, display_win
 end
 

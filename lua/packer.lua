@@ -313,6 +313,10 @@ packer.update = function(...)
     table.insert(tasks, luarocks.ensure(rocks, results, display_win))
     table.insert(tasks, 1, function() return not display.status.running end)
     table.insert(tasks, 1, config.max_jobs and config.max_jobs or (#tasks - 1))
+
+    if display_win == nil then
+      display_win = display.open(config.display.open_fn or config.display.open_cmd)
+    end
     display_win:update_headline_message('updating ' .. #tasks - 2 .. ' / ' .. #tasks - 2
                                           .. ' plugins')
     a.interruptible_wait_pool(unpack(tasks))
