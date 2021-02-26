@@ -15,7 +15,7 @@ if !has('nvim-0.5')
   finish
 endif
 
-packadd packer.nvim
+" packadd packer-nvim
 
 try
 ]]

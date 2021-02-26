@@ -248,6 +248,7 @@ local function args_or_all(...) return util.nonempty_or({...}, vim.tbl_keys(plug
 -- managed plugins.
 -- Installs missing plugins, then updates helptags and rplugins
 packer.install = function(...)
+  log.error("lol")
   local install_plugins
   if ... then
     install_plugins = {...}

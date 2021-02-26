@@ -98,8 +98,11 @@ end
 plugin_utils.find_missing_plugins = function(plugins, opt_plugins, start_plugins)
   if opt_plugins == nil or start_plugins == nil then
     opt_plugins, start_plugins = plugin_utils.list_installed_plugins()
-  end
 
+  end
+  log.info("optional plugins", opt_plugins)
+  log.info("start plugins", opt_plugins)
+  log.info("want to install ", plugins)
   -- NOTE/TODO: In the case of a plugin gaining/losing an alias, this will force a clean and
   -- reinstall
   local missing_plugins = {}
